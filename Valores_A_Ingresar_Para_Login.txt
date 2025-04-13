@@ -5,4 +5,5 @@ Para probar el login se debe ingresar los usuarios:
 - Para jugador:
 	• Usuario: prueba@gmail.com
 	• Contraseña: 1234
-Es importante ingresar a la carpeta de index que es donde se encuentra el prototipo, su dirección se encuentra en ../HTML/index.html
+La respuesta a la pregunta "sabes la respuesta" es no.
+La respuesta de la imagen es "gura"
