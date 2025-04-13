@@ -1,0 +1,53 @@
+import { checkAuth, redirectIfAuthenticated } from './authUtils.js';
+
+// Verificar si el usuario ya está autenticado
+document.addEventListener('DOMContentLoaded', async () => {
+  const isAuthenticated = await checkAuth();
+  if (isAuthenticated) {
+    window.location.href = '/html/game.html';
+  }
+});
+
+// Manejar formulario de login
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  
+  try {
+    const response = await fetch('http://localhost:3000/api/auth/login', {
+      method: 'POST',
+      credentials: 'include', // Para manejar cookies
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      window.location.href = '/html/game.html';
+    } else {
+      alert(data.message || 'Error en el login');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error al conectar con el servidor');
+  }
+});
+
+// Login con Google (deberás configurar OAuth)
+document.getElementById('googleLogin').addEventListener('click', () => {
+  window.location.href = 'http://localhost:3000/api/auth/google';
+});
+
+// Login con Facebook (deberás configurar OAuth)
+document.getElementById('facebookLogin').addEventListener('click', () => {
+  window.location.href = 'http://localhost:3000/api/auth/facebook';
+});
+
+document.getElementById('facebookLogin').addEventListener('click', () => {
+  window.location.href = 'http://localhost:3000/api/auth/facebook';
+});

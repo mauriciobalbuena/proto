@@ -1,0 +1,23 @@
+Prototipo
+ ┣ assets
+ ┃ ┣ fonts
+ ┃ ┃ ┣ desktop.ini
+ ┃ ┃ ┗ OpenMine.ttf
+ ┃ ┗ img
+ ┃ ┃ ┣ logo.ico
+ ┃ ┃ ┣ logo.png
+ ┃ ┃ ┗ logob.png
+ ┣ backend
+ ┃ ┣ app.py
+ ┃ ┗ users.db
+ ┣ css
+ ┃ ┣ admin.css
+ ┃ ┗ index.css
+ ┣ html
+ ┃ ┣ admin.html
+ ┃ ┣ cooldown.html
+ ┃ ┗ index.html
+ ┣ js
+ ┃ ┣ admin.js
+ ┃ ┗ index.js
+ ┗ Three.txt
