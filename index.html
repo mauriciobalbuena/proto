@@ -6,6 +6,8 @@
     <title>Login - Lienzo</title>
     <link rel="stylesheet" href="Prototipo/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Agrega el script de la API de Google -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <header class="header">
@@ -25,7 +27,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="password">prueba</label>
+                    <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="••••••••" required>
                 </div>
                 
@@ -34,13 +36,23 @@
                 <div class="divider">or</div>
                 
                 <div class="social-login">
-                    <button type="button" id="googleLogin" class="social-btn google">
-                        <i class="fab fa-google"></i> Continue with Google
-                      </button>                      
-                      <button type="button" id="facebookLogin" class="social-btn facebook">
-                        <i class="fab fa-facebook-f"></i> Continue with Facebook
-                      </button>
-                      
+                    <!-- Botón de Google -->
+                    <div id="g_id_onload"
+                         data-client_id="TU_CLIENT_ID_DE_GOOGLE.apps.googleusercontent.com"
+                         data-context="signin"
+                         data-ux_mode="popup"
+                         data-callback="handleGoogleLogin"
+                         data-auto_prompt="false">
+                    </div>
+
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="filled_blue"
+                         data-text="signin_with"
+                         data-size="large"
+                         data-logo_alignment="left">
+                    </div>
                 </div>
             </form>
         </div>
@@ -59,5 +71,3 @@
     <script src="Prototipo/js/index.js" type="module"></script>
 </body>
 </html>
-
-

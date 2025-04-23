@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Si quieres simular una sesión, podrías guardar algo en localStorage aquí
-
   // Manejar formulario de login con validación local
   document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -16,13 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Correo o contraseña incorrectos.\nPrueba con:\nprueba@gmail.com / 1234\nadmin@gmail.com / 1234');
     }
   });
-
-  // Desactivar temporalmente los botones sociales
-  document.getElementById('googleLogin').addEventListener('click', () => {
-    alert('Login con Google aún no está disponible.');
-  });
-
-  document.getElementById('facebookLogin').addEventListener('click', () => {
-    alert('Login con Facebook aún no está disponible.');
-  });
 });
+
+// Función para manejar el login con Google
+function handleGoogleLogin(response) {
+  // Aquí recibes el token de credencial de Google
+  const credential = response.credential;
+  
+  // Decodifica el token JWT para obtener los datos del usuario
+  const payload = JSON.parse(atob(credential.split('.')[1]));
+  
+  console.log('ID: ' + payload.sub);
+  console.log('Nombre: ' + payload.name);
+  console.log('Email: ' + payload.email);
+  
+  // Aquí puedes redirigir al usuario o guardar la sesión
+  // Por ejemplo:
+  localStorage.setItem('googleUser', JSON.stringify({
+    id: payload.sub,
+    name: payload.name,
+    email: payload.email,
+    picture: payload.picture
+  }));
+  
+  // Redirige al usuario
+  window.location.href = 'Prototipo/html/indexGura.html';
+}
